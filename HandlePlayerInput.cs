@@ -40,10 +40,11 @@ public class HandlePlayerInput : MonoBehaviour
         OnHandleMouseClick?.Invoke(selectedObject); //listen to event and pass eitehr game object selected or null value
     }
 
-    private void GetMousePosition()
+    private Vector3 GetMousePosition()
     {
     Vector3 mouseInput = currentCamera.ScreenToWorldPoint(Input.mousePosition); //This takes the mouse's position on the screen and converts it into a point in the game world.
-        mouseInput.z = 0f; //This sets the z-coordinate of that point to 0, effectively making sure we're working in a 2D plane.
+    mouseInput.z = 0f; //This sets the z-coordinate of that point to 0, effectively making sure we're working in a 2D plane.
+    return mouseInput;
     }
 }
 
