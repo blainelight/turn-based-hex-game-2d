@@ -39,7 +39,7 @@ public class CharacterMovement : MonoBehaviour
         Vector3 endPosition = currentCamera.ScreenToWorldPoint(Input.mousePosition);
         endPosition.z = 0f; //for staftey of calc correct position
 
-        if (Vector2.Distance(endPosition, selectedObject.transform.position) > threshold); //if the distance b/n these 2 potins is great than threshold which is .5, then that means it was delivered via a drag of the mouse
+        if (Vector2.Distance(endPosition, selectedObject.transform.position) > threshold) //if the distance b/n these 2 potins is great than threshold which is .5, then that means it was delivered via a drag of the mouse
         {
             Vector2 direction = (endPosition - selectedObject.transform.position); // this is movement on any psotion, but want ot limit to carndial directions - udlr
             
