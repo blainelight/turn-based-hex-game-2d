@@ -29,7 +29,6 @@ public class HandlePlayerInput : MonoBehaviour
     {
         Vector3 mouseInput = GetMousePosition();
         HandleMouseFinishDragging?.Invoke(mouseInput);
-
     }    
 
     private void HandleMouseClick()

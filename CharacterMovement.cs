@@ -5,28 +5,17 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float threshold = 0.5f;
-    private FlashFeedback flashFeedback;
     private GameObject selectedObject;
 
      public void HandleSelection(GameObject detectedObject)
     {
-        //Vector3 mouseInput = currentCamera.ScreenToWorldPoint(Input.mousePosition); //This takes the mouse's position on the screen and converts it into a point in the game world.
-        //mouseInput.z = 0f; //This sets the z-coordinate of that point to 0, effectively making sure we're working in a 2D plane.
-        //Collider2D collider = Physics2D.OverlapPoint(mouseInput, layerMask); //This checks if there's any 2D object (with a Collider2D component) at the point where the mouse clicked, considering only objects on layers specified by layerMask. Here, the layermask is Agent, and the object clicked is the FarmerObject with a 2D colider set on it. 
-        //selectedObject = collider == null ? null : collider.gameObject; //collider can be null or referencing the agent. if colider = null, it will be null, else get collider.getobject.
-
-        if(detectedObject!= null)
-            this.selectedObject = detectedObject;
-            flashFeedback = selectedObject.GetComponent<FlashFeedback>(); //this grabs the FlashFeedback compentent from the selectedObject
-            flashFeedback.PlayFeedback(); //this calls the PlayFeedback method we wrote which will make the thing flash
+        this.selectedObject = detectedObject;
     }
 
     public void HandleMovement(Vector3 endPosition) //drag mouse and let go of button//determine if we can select object or not
     {
         if(selectedObject == null)
             return;
-        
-        flashFeedback.StopFeedback();
 
         if (Vector2.Distance(endPosition, selectedObject.transform.position) > threshold) //if the distance b/n these 2 potins is great than threshold which is .5, then that means it was delivered via a drag of the mouse
         {
