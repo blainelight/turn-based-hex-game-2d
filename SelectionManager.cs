@@ -18,7 +18,7 @@ public class SelectionManager : MonoBehaviour
 
     private void DeselectOldObject()
     {
-        if(flashFeedback = null)
+        if(flashFeedback == null)
             return;
         flashFeedback.StopFeedback();
         flashFeedback = null;
