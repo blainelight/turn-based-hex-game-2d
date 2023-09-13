@@ -11,7 +11,7 @@ public class FlashFeedback : MonoBehaviour
 
     public void PlayFeedback()
     {
-        if(spriteRenderer == null )
+        if(spriteRenderer == null)
             return;
         StopFeedback();
         StartCoroutine(FlashCoroutine());
@@ -28,7 +28,7 @@ public class FlashFeedback : MonoBehaviour
         spriteRenderer.color = spriteColor; // again, set the sprite renderer to the color - we do this again because color is a value type - we cannot modify it on our sprite rendered; we need to assign a new one, but with the alpha = 0 this time. 
         yield return new WaitForSeconds(visibleTime);
 
-        StartCoroutine(FlashCoroutine);
+        StartCoroutine(FlashCoroutine());
     }
 
     public void StopFeedback()
