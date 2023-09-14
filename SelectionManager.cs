@@ -9,7 +9,7 @@ public class SelectionManager : MonoBehaviour
     public void HandleSelection(GameObject detectedCollider)
     {
         DeselectOldObject();
-        if(detectedCollider = null)
+        if(detectedCollider == null)
             return;
         
         flashFeedback = detectedCollider.GetComponent<FlashFeedback>();
