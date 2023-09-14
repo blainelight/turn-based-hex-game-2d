@@ -12,7 +12,14 @@ public class SelectionManager : MonoBehaviour
         if(detectedCollider == null)
             return;
         
-        flashFeedback = detectedCollider.GetComponent<FlashFeedback>();
+        Unit unit = detectedCollider.GetComponent<Unit>(); //this is our script that is on agents
+        if(unit != null)
+        {
+            if(unit.CanStillMove() == false) //if unit is done moving
+                return;
+        }
+
+        flashFeedback = detectedCollider.GetComponent<FlashFeedback>(); //the FarmerUnit has a compentent FlashFeedback on it, and it users the workers_2 as the sprite renderer, and invisible time .3 and visible time .07
         flashFeedback.PlayFeedback();
     }
 
